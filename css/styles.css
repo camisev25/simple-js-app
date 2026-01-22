@@ -256,3 +256,44 @@ button:hover, button:focus, .button:hover, .button:focus {
 .hobbies_list {
   list-style-type: var(--no-list-style);
 }
+
+.recipe-button{
+  border: none;
+  display: inline-block;
+  /* takes the font from the outer container */
+  font-family: inherit;
+  /* styles the background color, font color, and text decoration (underline, etc.) of the button */
+  background-color: var(--primary-color);
+  color: var(--button-font-white);
+  text-decoration: var(--no-text-decoration);
+  /*adds spacing to the button (this will be discussed more in-depth later) */
+  padding: 10px;
+  border-radius: 3px;
+  /* gives the button a bottom border with a width of 2px, a type of solid, and a color in RGBA format */
+  border-bottom: 2px solid var(--lighterBlack);
+  transition: opacity 0.2s;
+}
+
+.recipe-button:hover{
+ /* lets the mouse appear as a hand when hovering over the button */
+  cursor: pointer;
+  /* reduces the opacity of the button to 80% */
+  opacity: 0.8;
+}
+
+.recipe-list {
+  list-style-type: none;
+  padding: 0;
+  margin: 20px auto;
+  max-width: 400px;
+}
+
+.recipe-list li {
+  margin-bottom: 10px;
+}
+
+@media (max-width: 600px) {
+  .recipe-button {
+    width: 100%;
+  }
+}

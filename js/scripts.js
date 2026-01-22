@@ -33,9 +33,28 @@ let recipeRepository = (function () {
         recipeList.push(item);
     }
 
+    function showDetails(recipe) {
+        console.log(recipe);
+    }
+
+    function addListItem(recipe){
+        let recipeListElement = document.querySelector('.recipe-list');
+        let listItem = document.createElement('li');
+        let button = document.createElement('button');
+        button.innerText = recipe.name;
+        button.classList.add('recipe-button'); //check for existing button classes in CSS to better style them
+        button.addEventListener('click', function () {
+            showDetails (recipe);
+        });
+
+        listItem.appendChild(button);
+        recipeListElement.appendChild(listItem);
+    }
+
     return {
         getAll: getAll,
-        add: add
+        add: add,
+        addListItem: addListItem
     };
 }) ();
 
@@ -46,13 +65,5 @@ recipeRepository.add({
 });
 
 recipeRepository.getAll().forEach((recipe) => {
-    let message = recipe.name + " is suitable for babies under 1yo";
-
-    if (recipe.types.includes('snack')) {
-        message += "- you can serve this as a snack";
-    } else {
-        message += "- this is too heavy for a snack!";
-    }
-
-    document.write(message + "<br>");
+    recipeRepository.addListItem(recipe);
 });
