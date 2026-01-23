@@ -257,7 +257,7 @@ button:hover, button:focus, .button:hover, .button:focus {
   list-style-type: var(--no-list-style);
 }
 
-.recipe-button{
+.pokemon-button{
   border: none;
   display: inline-block;
   /* takes the font from the outer container */
@@ -274,26 +274,26 @@ button:hover, button:focus, .button:hover, .button:focus {
   transition: opacity 0.2s;
 }
 
-.recipe-button:hover{
+.pokemon-button:hover{
  /* lets the mouse appear as a hand when hovering over the button */
   cursor: pointer;
   /* reduces the opacity of the button to 80% */
   opacity: 0.8;
 }
 
-.recipe-list {
+.pokemon-list {
   list-style-type: none;
   padding: 0;
   margin: 20px auto;
   max-width: 400px;
 }
 
-.recipe-list li {
+.pokemon-list li {
   margin-bottom: 10px;
 }
 
 @media (max-width: 600px) {
-  .recipe-button {
+  .pokemon-button {
     width: 100%;
   }
 }
