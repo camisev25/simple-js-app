@@ -180,7 +180,7 @@ let pokemonRepository = (function () {
     });
 
     window.addEventListener('keydown', function(e) {
-        if (e.key === 'Escape' && modalcontainerclassList.contains('is-visible')) {
+        if (e.key === 'Escape' && modalContainer.classList.contains('is-visible')) {
             hideModal();
         }
     });
