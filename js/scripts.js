@@ -63,7 +63,18 @@ let pokemonRepository = (function () {
         }) .then(function (details) {
             item.imageUrl = details.sprites.front_default;
             item.height = details.height;
-            item.types = details.types;
+
+            //array like data//
+            item.types = details.types.map(function(typeInfo) {
+                return typeInfo.type.name;
+            });
+            item.abilities = details.abilities.map(function (abilityInfo) {
+                return abilityInfo.ability.name;
+            });
+            item.moves = details.moves.map(function (moveInfo) {
+                return moveInfo.move.name;
+            })
+
         }) .catch(function(e) {
             console.error(e);
         });
@@ -72,10 +83,21 @@ let pokemonRepository = (function () {
     function showModal(pokemon) {
         let modalTitle = document.querySelector('#pokemonModalLabel');
         let modalBodyHeight = document.querySelector('.pokemon-height');
+        let modalBodyTypes = document.querySelector('.pokemon-types');
+        let modalBodyAbilities = document.querySelector('.pokemon-abilities');
+        let modalBodyMoves = document.querySelector('.pokemon-moves');
         let modalImage = document.querySelector('.pokemon-image');
 
         modalTitle.innerText = pokemon.name;
         modalBodyHeight.innerText = 'Height: '+ pokemon.height;
+
+        modalBodyTypes.innerText = 'Type: '+ pokemon.types.join(', ');
+        modalBodyAbilities.innerText = 'Abilities: '+ pokemon.abilities.join(', ');
+
+        //limiting number of moves from the list
+        let movestoShow = pokemon.moves.slice(0, 5); //first 5 moves
+        modalBodyMoves.innerText = 'Moves: '+ movestoShow.join(', ');
+
         modalImage.src = pokemon.imageUrl;
         modalImage.alt = pokemon.name;
 

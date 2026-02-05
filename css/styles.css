@@ -94,10 +94,13 @@ button:hover, button:focus, .button:hover, .button:focus {
   list-style-type: none;
   padding: 0;
   margin: 20px auto;
-  max-width: 400px;
+  column-count: 3;
+  column-gap: 20px; /* space between columns */
 }
 
 .pokemon-list li {
+  display: inline-block;
+  width: 100%;
   margin-bottom: 10px;
 }
 
@@ -109,6 +112,7 @@ button:hover, button:focus, .button:hover, .button:focus {
 
 .btn-pokemon {
   background-color: var(--primary-color);
+  color: var(--button-font-white);
   border: 2px solid black;
   font-weight: bold;
   letter-spacing: 1px;
@@ -134,4 +138,14 @@ button:hover, button:focus, .button:hover, .button:focus {
   max-width: 200px;
   margin: 0 auto;
   display: block;
+}
+
+@media (max-width: 600px) {
+  .pokemon-list {
+    column-count: 1;
+  }
+}
+
+.pokemon-list .btn {
+  width: 100%;
 }
