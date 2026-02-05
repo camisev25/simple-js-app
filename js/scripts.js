@@ -97,3 +97,4 @@ pokemonRepository.loadList().then(function () {
     });
 });
 
+
